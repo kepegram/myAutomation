@@ -1,6 +1,6 @@
 package com.pegram.project.fieldwire;
 
-import com.pegram.project.Setup;
+import com.pegram.project.testUtils.Setup;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 

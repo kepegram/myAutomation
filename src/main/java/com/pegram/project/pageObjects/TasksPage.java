@@ -19,6 +19,54 @@ public class TasksPage extends AndroidActions {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
+    // duplicating task methods
+
+    public void selectTasks() throws InterruptedException {
+        openApp();
+        Tasks.click();
+        Thread.sleep(2000);
+        SecondTask.click();
+        Thread.sleep(1000);
+    }
+
+    public void duplicateTasks() throws InterruptedException {
+        Menu.click();
+        Thread.sleep(1000);
+        Duplicate.click();
+        Thread.sleep(1000);
+        Back.click();
+        Thread.sleep(1000);
+        Back.click();
+        Thread.sleep(1000);
+    }
+
+    public void assertTaskDuplication(String attribute, String expectedText) {
+        Assert.assertEquals(DuplicatedTask.getAttribute(attribute), expectedText);
+    }
+
+    // creating new task methods
+
+    public void selectPrio3Task(String prio3Task) throws InterruptedException {
+        scrollToText(prio3Task);
+        Thread.sleep(1000);
+        Prio3Task.click();
+    }
+
+    public void createRelatedTask(String task) throws InterruptedException {
+        AttachButton.click();
+        RelatedTaskButton.click();
+        CreateNewTaskButton.click();
+        Thread.sleep(1000);
+        NewTaskInput.sendKeys(task);
+        ConfirmButton.click();
+    }
+
+    public void assertTaskCreation(String attribute, String expectedText) throws InterruptedException {
+        Assert.assertEquals(NewTask.getAttribute(attribute), expectedText);
+        Thread.sleep(1000);
+        resetApp();
+    }
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"net.fieldwire.app:id/group_title\" and @text=\"Tasks\"]")
     private WebElement Tasks;
 
@@ -35,27 +83,27 @@ public class TasksPage extends AndroidActions {
     private WebElement Back;
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"net.fieldwire.app:id/task_title\"])[3]")
+    private WebElement DuplicatedTask;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"net.fieldwire.app:id/task_title\" and @text=\"Sawcutting sidewalk in progress\"]")
+    private WebElement Prio3Task;
+
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id=\"net.fieldwire.app:id/attach\"]")
+    private WebElement AttachButton;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"net.fieldwire.app:id/text\" and @text=\"Related task\"]")
+    private WebElement RelatedTaskButton;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"net.fieldwire.app:id/text\" and @text=\"Create new task\"]")
+    private WebElement CreateNewTaskButton;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"net.fieldwire.app:id/text_input\"]")
+    private WebElement NewTaskInput;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"net.fieldwire.app:id/positive_button\"]")
+    private WebElement ConfirmButton;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"net.fieldwire.app:id/task_title\" and @text=\"Wash concrete debris\"]")
     private WebElement NewTask;
-
-    public void selectTasks() throws InterruptedException {
-        Tasks.click();
-        Thread.sleep(2000);
-        SecondTask.click();
-        Thread.sleep(1000);
-    }
-
-    public void duplicateTasks() throws InterruptedException {
-        Menu.click();
-        Thread.sleep(1000);
-        Duplicate.click();
-        Thread.sleep(1000);
-        Back.click();
-        Back.click();
-        Thread.sleep(1000);
-    }
-
-    public void assertTaskCreation(String attribute, String expectedText) {
-        Assert.assertEquals(NewTask.getAttribute(attribute), expectedText);
-    }
 
 }
