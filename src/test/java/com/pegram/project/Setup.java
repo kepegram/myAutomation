@@ -1,9 +1,13 @@
 package com.pegram.project;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -33,6 +37,7 @@ public class Setup {
         //opens app on home screen (do not have access to apk file)
         driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Fieldwire\"]")).click();
         Thread.sleep(5000);
+        driver.findElement(By.xpath("//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]")).click();
     }
 
     @AfterClass
