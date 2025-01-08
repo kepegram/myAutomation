@@ -27,7 +27,11 @@ public class AndroidActions {
                 "scrollIntoView(text(\""+text+"\"));"));
     }
 
-    public void openApp() throws InterruptedException {
+    public void openSnapApp() throws InterruptedException {
+        driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Snapchat\"]")).click();
+    }
+
+    public void openFieldwireApp() throws InterruptedException {
 
         //opens app on home screen (do not have access to apk file)
         driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Fieldwire\"]")).click();

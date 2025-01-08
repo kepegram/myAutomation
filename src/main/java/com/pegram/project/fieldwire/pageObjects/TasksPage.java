@@ -23,7 +23,7 @@ public class TasksPage extends AndroidActions {
     // duplicating task methods
 
     public void selectTasks() throws InterruptedException {
-        openApp();
+        openFieldwireApp();
         Tasks.click();
         Thread.sleep(2000);
         SecondTask.click();

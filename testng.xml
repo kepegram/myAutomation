@@ -4,10 +4,15 @@
     <listeners>
         <listener class-name="com.pegram.project.testUtils.Listeners"></listener>
     </listeners>
-    <test thread-count="2" name="Tasks Test">
+<!--    <test thread-count="2" name="Tasks Test">-->
+<!--        <classes>-->
+<!--            <class name="com.pegram.project.fieldwire.tasks.DuplicateTasks"/>-->
+<!--            <class name="com.pegram.project.fieldwire.tasks.CreateNewTask"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test thread-count="2" name="Snap Test">
         <classes>
-            <class name="com.pegram.project.fieldwire.tasks.DuplicateTasks"/>
-            <class name="com.pegram.project.fieldwire.tasks.CreateNewTask"/>
+            <class name="com.pegram.project.snap.userAuth.SnapAuth"/>
         </classes>
     </test>
 </suite>
