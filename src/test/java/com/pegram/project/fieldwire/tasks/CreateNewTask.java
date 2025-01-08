@@ -1,7 +1,8 @@
 package com.pegram.project.fieldwire.tasks;
 
+import com.pegram.project.fieldwire.pageObjects.TasksPage;
 import com.pegram.project.testUtils.Setup;
-import com.pegram.project.pageObjects.TasksPage;
+
 import org.testng.annotations.Test;
 
 public class CreateNewTask extends Setup {

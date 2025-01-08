@@ -20,10 +20,17 @@ public class Setup {
     @BeforeClass
     public void ConfigureAppium() throws URISyntaxException, MalformedURLException {
 
-        // starts appium server locally (need to change filepath when on mac)
-        service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//KAYPC//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
-                .withIPAddress("127.0.0.1").usingPort(4723).build();
-        service.start();
+        // starts appium server locally
+
+        // Windows
+//        service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//KAYPC//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
+//                .withIPAddress("127.0.0.1").usingPort(4723).build();
+//        service.start();
+
+        // Mac
+//        service = new AppiumServiceBuilder().withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
+//                .withIPAddress("127.0.0.1").usingPort(4723).build();
+//        service.start();
 
         // initialize Android options & driver
         UiAutomator2Options options = new UiAutomator2Options();
@@ -35,6 +42,6 @@ public class Setup {
     @AfterClass
     public void tearDown() {
         driver.quit();
-        service.stop();
+//        service.stop();
     }
 }

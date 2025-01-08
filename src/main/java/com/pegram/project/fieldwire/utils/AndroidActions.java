@@ -1,4 +1,4 @@
-package com.pegram.project.utils;
+package com.pegram.project.fieldwire.utils;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
